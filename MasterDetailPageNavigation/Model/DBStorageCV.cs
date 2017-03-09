@@ -27,10 +27,10 @@ namespace Lebenslauf
         public DateTime GebDat { get; set; }
         public string GebLand { get; set; }
         public string Familienstand { get; set; }
-        public string Nationalität { get; set; }
+        public string Nationalitaet { get; set; }
         public string Kinder { get; set; }
         public string Hobbies { get; set; }
-        public string Führerschein { get; set; }
+        public string Fuehrerschein { get; set; }
         public string NameCV { get; set; }
         public string GebOrt { get; set; }
     };
@@ -69,7 +69,7 @@ namespace Lebenslauf
         public string Schulname { get; set; }
         public string Ort { get; set; }
         public string Land { get; set; }
-        public string Abschluß { get; set; }
+        public string Abschluss { get; set; }
     };
 
     //Ausbildung/Studium
@@ -88,7 +88,7 @@ namespace Lebenslauf
     };
 
     [Table("BeruflicheTätigkeit")]
-    public class BeruflicheTätigkeitTableItem
+    public class BeruflicheTaetigkeitTableItem
     {
         [PrimaryKey, AutoIncrement, Column("_id")]
         public int ID { get; set; }
@@ -97,7 +97,7 @@ namespace Lebenslauf
         public DateTime Von { get; set; }
         public DateTime Bis { get; set; }
         public string Arbeitgeber { get; set; }
-        public string Tätigkeit { get; set; }
+        public string Taetigkeit { get; set; }
         public string Ort { get; set; }
     };
 
@@ -212,7 +212,7 @@ namespace Lebenslauf
             dbCon.CreateTable<SchulbildungTableItem>();
             dbCon.CreateTable<ImagesTableItem>();
             dbCon.CreateTable<AusbildungTableItem>();
-            dbCon.CreateTable<BeruflicheTätigkeitTableItem>();
+            dbCon.CreateTable<BeruflicheTaetigkeitTableItem>();
             dbCon.CreateTable<WeiterbildungTableItem>();
             dbCon.CreateTable<SprachkenntnisseTableItem>();
             dbCon.CreateTable<ComputerKenntnisseTableItem>();

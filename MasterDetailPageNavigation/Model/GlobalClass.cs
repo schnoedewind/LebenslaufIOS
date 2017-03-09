@@ -68,7 +68,7 @@ namespace Lebenslauf
                     break;
 
                 case "DriveLicsense":
-                    HelpString = "Haben Sie einen oder mehrere Führerscheine? Wenn ja, geben Sie bitte noch an für welche „Klasse“.@@Um eine weitere Klasse hinzuzufügen klicken Sie auf das Pluszeichen.@@Die Zahl links unten zeigt an, der wievielte Eintrag unter dem Punkt „Führerschein““ es aktuell ist.@@Wollen Sie einen Eintrag wieder löschen, drücken Sie auf das X links unten neben der Zahl.Das X erscheint allerdings erst ab dem 2.Eintrag.@@Über das Speichern Symbol können Sie Ihre Eingaben an jeder Stelle per Hand speichern.@ Sobald Sie aber den Pfeil vorwärts oder rückwärts drücken, speichert die App automatisch die aktuellen Eingaben.";
+                    HelpString = "Haben Sie einen oder mehrere Fuehrerscheine? Wenn ja, geben Sie bitte noch an für welche „Klasse“.@@Um eine weitere Klasse hinzuzufügen klicken Sie auf das Pluszeichen.@@Die Zahl links unten zeigt an, der wievielte Eintrag unter dem Punkt „Fuehrerschein““ es aktuell ist.@@Wollen Sie einen Eintrag wieder löschen, drücken Sie auf das X links unten neben der Zahl.Das X erscheint allerdings erst ab dem 2.Eintrag.@@Über das Speichern Symbol können Sie Ihre Eingaben an jeder Stelle per Hand speichern.@ Sobald Sie aber den Pfeil vorwärts oder rückwärts drücken, speichert die App automatisch die aktuellen Eingaben.";
                     HelpString = HelpString.Replace("@", System.Environment.NewLine);
                     break;
 

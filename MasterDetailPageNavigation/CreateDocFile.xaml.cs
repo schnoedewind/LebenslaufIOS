@@ -26,7 +26,7 @@ namespace Lebenslauf
         DBStorageCV dbcv;
         SprachkenntnisseTableItem pdRowLanguage;
         AusbildungTableItem pdRowAusbildung;
-        BeruflicheTätigkeitTableItem pdRowBeruf;
+        BeruflicheTaetigkeitTableItem pdRowBeruf;
         SchulbildungTableItem pdRowSchule;
         WeiterbildungTableItem pdRowWeiter;
         ComputerKenntnisseTableItem pdRowComputer;
@@ -182,7 +182,7 @@ namespace Lebenslauf
         {
 
             List<ExpandoObject> Persons = new List<ExpandoObject>();
-            Persons.Add(GetDynamicPerson("Foto.png",pdRow.Vorname, pdRow.Nachname,pdRow.Nationalität,pdRow.GebDat,pdRow.GebLand,pdRow.GebOrt,pdRow.Familienstand,pdRow.Kinder, NullToString(pdRowContact.Strasse), NullToString(pdRowContact.PLZ), NullToString(pdRowContact.Ort), NullToString(pdRowContact.Telefon), NullToString(pdRowContact.Email),pdRow.Hobbies));
+            Persons.Add(GetDynamicPerson("Foto.png",pdRow.Vorname, pdRow.Nachname,pdRow.Nationalitaet,pdRow.GebDat,pdRow.GebLand,pdRow.GebOrt,pdRow.Familienstand,pdRow.Kinder, NullToString(pdRowContact.Strasse), NullToString(pdRowContact.PLZ), NullToString(pdRowContact.Ort), NullToString(pdRowContact.Telefon), NullToString(pdRowContact.Email),pdRow.Hobbies));
             return Persons;
             
         }
@@ -396,10 +396,10 @@ namespace Lebenslauf
 
             List<ExpandoObject> Works = new List<ExpandoObject>();
 
-            var query = dbcv.dbCon.Query<BeruflicheTätigkeitTableItem>("SELECT * FROM BeruflicheTätigkeit WHERE PersonendatenID = " + dbcv.CurrentCVID  + " Order By [Bis] DESC");
+            var query = dbcv.dbCon.Query<BeruflicheTaetigkeitTableItem>("SELECT * FROM BeruflicheTätigkeit WHERE PersonendatenID = " + dbcv.CurrentCVID  + " Order By [Bis] DESC");
             foreach (var s in query)
             {
-                Works.Add(GetDynamicWork(s.Von, s.Bis, s.Arbeitgeber, s.Tätigkeit, s.Ort));
+                Works.Add(GetDynamicWork(s.Von, s.Bis, s.Arbeitgeber, s.Taetigkeit, s.Ort));
             }
 
             return Works;
@@ -419,7 +419,7 @@ namespace Lebenslauf
                 if (String.IsNullOrEmpty(s.Abschluss))
                 { }
                 else
-                { AbschlussString = "Abschluß: " + s.Abschluss; }
+                { AbschlussString = "Abschluss: " + s.Abschluss; }
                 Ausbildungs.Add(GetDynamicAusbildung(s.Von, s.Bis, s.Ausbildung, AbschlussString, s.Ort));
             }
 
@@ -435,10 +435,10 @@ namespace Lebenslauf
             var query = dbcv.dbCon.Query<SchulbildungTableItem>("SELECT * FROM Schulbildung WHERE PersonendatenID = " + dbcv.CurrentCVID + " Order By [Bis] DESC");
             foreach (var s in query)
             {
-                if (String.IsNullOrEmpty(s.Abschluß))
+                if (String.IsNullOrEmpty(s.Abschluss))
                 { }
                 else
-                { AbschlussString = "Abschluß: " + s.Abschluß; }
+                { AbschlussString = "Abschluss: " + s.Abschluss; }
                 Schools.Add(GetDynamicSchule(s.Von, s.Bis, s.Schulname, s.Ort, s.Land, AbschlussString));
             }
             return Schools;

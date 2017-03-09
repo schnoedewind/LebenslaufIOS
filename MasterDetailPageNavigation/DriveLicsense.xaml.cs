@@ -162,8 +162,8 @@ namespace Lebenslauf
             switch (Lang)
             {
                 case 1:
-                    MainLabel = "Führerschein";
-                    Label1 = "Führerschein:";
+                    MainLabel = "Fuehrerschein";
+                    Label1 = "Fuehrerschein:";
                     Label2 = "Klasse:";
                     break;
                 case 2:
