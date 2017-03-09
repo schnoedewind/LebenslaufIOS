@@ -1,6 +1,6 @@
 ﻿using Plugin.Media;
-using Syncfusion.DocIO;
-using Syncfusion.DocIO.DLS;
+//using Syncfusion.DocIO;
+//using Syncfusion.DocIO.DLS;
 using System;
 using System.Collections.Generic;
 using System.IO;

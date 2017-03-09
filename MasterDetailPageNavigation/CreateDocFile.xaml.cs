@@ -1,7 +1,7 @@
 ﻿using Java.Util;
 using SQLite;
-using Syncfusion.DocIO;
-using Syncfusion.DocIO.DLS;
+//using Syncfusion.DocIO;
+//using Syncfusion.DocIO.DLS;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -71,111 +71,111 @@ namespace Lebenslauf
         }
         void OnButtonClicked(object sender, EventArgs e)
         {
-            string MyFile = "";
-            pdRow = dbcv.dbCon.Get<PersonendatenTableItem>(dbcv.CurrentCVID);
-            MyFile = pdRow.NameCV + ".docx";
-            var query = dbcv.dbCon.Table<KontaktdatenTableItem>().Where(v => v.PersonendatenID == dbcv.CurrentCVID);
-            if (query.Count() > 0)
-            {
-                pdRowContact = query.First();
-            }
-            else
-            {
+            //string MyFile = "";
+            //pdRow = dbcv.dbCon.Get<PersonendatenTableItem>(dbcv.CurrentCVID);
+            //MyFile = pdRow.NameCV + ".docx";
+            //var query = dbcv.dbCon.Table<KontaktdatenTableItem>().Where(v => v.PersonendatenID == dbcv.CurrentCVID);
+            //if (query.Count() > 0)
+            //{
+            //    pdRowContact = query.First();
+            //}
+            //else
+            //{
 
-            }
+            //}
 
-            var query1 = dbcv.dbCon.Table<ImagesTableItem>().Where(v => v.PersonendatenID == dbcv.CurrentCVID);
-            if (query1.Count() > 0)
-            {
-                pdRowImage = query1.First();
-            }
+            //var query1 = dbcv.dbCon.Table<ImagesTableItem>().Where(v => v.PersonendatenID == dbcv.CurrentCVID);
+            //if (query1.Count() > 0)
+            //{
+            //    pdRowImage = query1.First();
+            //}
 
            
             
-            Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-            // Creating a new document.
-            WordDocument document = new WordDocument();
-            Stream inputStream = assembly.GetManifestResourceStream("Lebenslauf.Templates.Lebenslauf02.docx");
-            //Open Template document
-            document.Open(inputStream, FormatType.Word2013);
-            inputStream.Dispose();
+            //Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+            //// Creating a new document.
+            //WordDocument document = new WordDocument();
+            //Stream inputStream = assembly.GetManifestResourceStream("Lebenslauf.Templates.Lebenslauf02.docx");
+            ////Open Template document
+            //document.Open(inputStream, FormatType.Word2013);
+            //inputStream.Dispose();
           
-            MailMergeDataSet dataSet = new MailMergeDataSet();
-            MailMergeDataTable dataTable = new MailMergeDataTable("Persons", GetPerson());
-            dataSet.Add(dataTable);
-            document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(Person_Photo);
-            dataTable = new MailMergeDataTable("Works", GetWork());
-            dataSet.Add(dataTable);
-            dataTable = new MailMergeDataTable("Ausbildungs", GetAusbildung());
-            dataSet.Add(dataTable);
-            dataTable = new MailMergeDataTable("Schools", GetSchule());
-            dataSet.Add(dataTable);
-            dataTable = new MailMergeDataTable("Advances", GetAdvance());
-            dataSet.Add(dataTable);
-            dataTable = new MailMergeDataTable("Languages", GetLanguage());
-            dataSet.Add(dataTable);
-            dataTable = new MailMergeDataTable("Computers", GetComputer());
-            dataSet.Add(dataTable);
-            dataTable = new MailMergeDataTable("FreiTexts", GetFreiText());
-            dataSet.Add(dataTable);
-            dataTable = new MailMergeDataTable("DriveLicenses", GetDriveLicense());
-            dataSet.Add(dataTable);
-            List<DictionaryEntry> commands = new List<DictionaryEntry>();
-            DictionaryEntry entry = new DictionaryEntry("Persons", string.Empty);
-            commands.Add(entry);
-            entry = new DictionaryEntry("Works", string.Empty);
-            commands.Add(entry);
-            entry = new DictionaryEntry("Ausbildungs", string.Empty);
-            commands.Add(entry);
-            entry = new DictionaryEntry("Schools", string.Empty);
-            commands.Add(entry);
-            entry = new DictionaryEntry("Advances", string.Empty);
-            commands.Add(entry);
-            entry = new DictionaryEntry("Languages", string.Empty);
-            commands.Add(entry);
-            entry = new DictionaryEntry("Computers", string.Empty);
-            commands.Add(entry);
-            entry = new DictionaryEntry("FreiTexts", string.Empty);
-            commands.Add(entry);
-            entry = new DictionaryEntry("DriveLicenses", string.Empty);
-            commands.Add(entry);
-            document.MailMerge.ExecuteNestedGroup(dataSet, commands);
+            //MailMergeDataSet dataSet = new MailMergeDataSet();
+            //MailMergeDataTable dataTable = new MailMergeDataTable("Persons", GetPerson());
+            //dataSet.Add(dataTable);
+            //document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(Person_Photo);
+            //dataTable = new MailMergeDataTable("Works", GetWork());
+            //dataSet.Add(dataTable);
+            //dataTable = new MailMergeDataTable("Ausbildungs", GetAusbildung());
+            //dataSet.Add(dataTable);
+            //dataTable = new MailMergeDataTable("Schools", GetSchule());
+            //dataSet.Add(dataTable);
+            //dataTable = new MailMergeDataTable("Advances", GetAdvance());
+            //dataSet.Add(dataTable);
+            //dataTable = new MailMergeDataTable("Languages", GetLanguage());
+            //dataSet.Add(dataTable);
+            //dataTable = new MailMergeDataTable("Computers", GetComputer());
+            //dataSet.Add(dataTable);
+            //dataTable = new MailMergeDataTable("FreiTexts", GetFreiText());
+            //dataSet.Add(dataTable);
+            //dataTable = new MailMergeDataTable("DriveLicenses", GetDriveLicense());
+            //dataSet.Add(dataTable);
+            //List<DictionaryEntry> commands = new List<DictionaryEntry>();
+            //DictionaryEntry entry = new DictionaryEntry("Persons", string.Empty);
+            //commands.Add(entry);
+            //entry = new DictionaryEntry("Works", string.Empty);
+            //commands.Add(entry);
+            //entry = new DictionaryEntry("Ausbildungs", string.Empty);
+            //commands.Add(entry);
+            //entry = new DictionaryEntry("Schools", string.Empty);
+            //commands.Add(entry);
+            //entry = new DictionaryEntry("Advances", string.Empty);
+            //commands.Add(entry);
+            //entry = new DictionaryEntry("Languages", string.Empty);
+            //commands.Add(entry);
+            //entry = new DictionaryEntry("Computers", string.Empty);
+            //commands.Add(entry);
+            //entry = new DictionaryEntry("FreiTexts", string.Empty);
+            //commands.Add(entry);
+            //entry = new DictionaryEntry("DriveLicenses", string.Empty);
+            //commands.Add(entry);
+            //document.MailMerge.ExecuteNestedGroup(dataSet, commands);
 
-            MemoryStream stream = new MemoryStream();
-            document.Save(stream, FormatType.Word2013);
-            document.Close();
-            //dbcv.dbCon.Close();
-            if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-                Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save(MyFile, "application/msword", stream);
-            else
-                Xamarin.Forms.DependencyService.Get<ISave>().Save(MyFile, "application/msword", stream);
+            //MemoryStream stream = new MemoryStream();
+            //document.Save(stream, FormatType.Word2013);
+            //document.Close();
+            ////dbcv.dbCon.Close();
+            //if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+            //    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save(MyFile, "application/msword", stream);
+            //else
+            //    Xamarin.Forms.DependencyService.Get<ISave>().Save(MyFile, "application/msword", stream);
         }
 
-        private void Person_Photo(object sender, MergeImageFieldEventArgs args)
+        //private void Person_Photo(object sender, MergeImageFieldEventArgs args)
 
-        {
+        //{
            
-            if (args.FieldName == "Foto") 
-            {
-                byte[] bytes = dbcv.LoadImageDataFromDB();
-                if (bytes != null)
-                {
+        //    if (args.FieldName == "Foto") 
+        //    {
+        //        byte[] bytes = dbcv.LoadImageDataFromDB();
+        //        if (bytes != null)
+        //        {
 
-                    var resizer = DependencyService.Get<IMediaService>();
-                    var resizedBytes = resizer.ResizeImage(bytes, 137, 140);
-                    Stream stream = new MemoryStream(resizedBytes);
-                    args.ImageStream = stream;
-                }
-                else
-                {
-                    Assembly assembly = GetType().Assembly();
-                    Stream imageStream = assembly.GetManifestResourceStream("Lebenslauf.Foto.png");
+        //            var resizer = DependencyService.Get<IMediaService>();
+        //            var resizedBytes = resizer.ResizeImage(bytes, 137, 140);
+        //            Stream stream = new MemoryStream(resizedBytes);
+        //            args.ImageStream = stream;
+        //        }
+        //        else
+        //        {
+        //            Assembly assembly = GetType().Assembly();
+        //            Stream imageStream = assembly.GetManifestResourceStream("Lebenslauf.Foto.png");
 
-                    args.ImageStream = imageStream;
-                }
+        //            args.ImageStream = imageStream;
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
         private List<ExpandoObject> GetPerson()
 
