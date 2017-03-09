@@ -32,7 +32,7 @@
                          HorizontalOptions="FillAndExpand">
 
               <Label Text="{Binding CVName}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="#ff8700" FontSize="18"/>
-              <Image  x:Name="PerImg" Source="{Binding Personimage,Converter={StaticResource Imgconvert}}"  HorizontalOptions="End" />
+             
                     
 
             </StackLayout>
